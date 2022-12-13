@@ -29,41 +29,42 @@ void main() {
 //         primarySwatch: Colors.red,
 //       ),
 //       // home: Routing(),
-//       // routes: {
-//       //   // '/': (context) => Routing(),
-//       //   '/': (context) => HomeScreen(),
-//       //   '/settings': (context) => SettingsScreen(),
-//       //   '/profile': (context) => ProfileScreen(),
-//       // },
-//       // onGenerateRoute: (RouteSettings settings) {
-//       //   print(settings);
-//       //   // Handle '/'
-//       //   if (settings.name == '/') {
-//       //     return MaterialPageRoute(builder: (context) => HomeScreen());
-//       //   }
+//       routes: {
+//         // '/': (context) => Routing(),
+//         '/': (context) => HomeScreen(),
+//         '/settings': (context) => SettingsScreen(),
+//         '/profile': (context) => ProfileScreen(),
+//       },
+//       onGenerateRoute: (RouteSettings settings) {
+//         print(settings);
+//         // Handle '/'
+//         if (settings.name == '/') {
+//           return MaterialPageRoute(builder: (context) => HomeScreen());
+//         }
 
-//       //   // Handle '/details/:id'
-//       //   var uri = Uri.parse(settings.name.toString());
-//       //   if (uri.pathSegments.length == 2 &&
-//       //       uri.pathSegments.first == 'character') {
-//       //     int id = int.parse(uri.pathSegments[1]);
-//       //     return MaterialPageRoute(builder: (context) => CharacterById(id: id));
-//       //   }
+//         // Handle '/details/:id'
+//         var uri = Uri.parse(settings.name.toString());
+//         if (uri.pathSegments.length == 2 &&
+//             uri.pathSegments.first == 'character') {
+//           int id = int.parse(uri.pathSegments[1]);
+//           return MaterialPageRoute(builder: (context) => CharacterById(id: id));
+//         }
 
-//       //   // handle unknown screens:
-//       //   // return MaterialPageRoute(builder: (context) => UnknownScreen());
-//       // },
-//       // home: Navigator(
-//       //   pages: [
-//       //     MaterialPage(child: HomeScreen()),
-//       //     if (true) MaterialPage(child: SettingsScreen()),
-//       //   ],
-//       //   onPopPage: (route, result) => route.didPop(result),
-//       // ),
+//         // handle unknown screens:
+//         // return MaterialPageRoute(builder: (context) => UnknownScreen());
+//       },
+//       home: Navigator(
+//         pages: [
+//           MaterialPage(child: HomeScreen()),
+//           if (true) MaterialPage(child: SettingsScreen()),
+//         ],
+//         onPopPage: (route, result) => route.didPop(result),
+//       ),
 //       debugShowCheckedModeBanner: false,
 //     );
 //   }
 // }
+
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
@@ -74,6 +75,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
+      home: Routing(),
       // routerDelegate: RouterDelegate(),
       // routeInformationParser: RouteInformationParser(),
       debugShowCheckedModeBanner: false,
@@ -114,15 +116,15 @@ class _RoutingState extends State<Routing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(_titles.elementAt(_selectedIndex)),
-      // ),
-      // drawer: Column(
-      //   children: [
-      //     Text('data'),
-      //     Text('data'),
-      //   ],
-      // ),
+      appBar: AppBar(
+        title: Text(_titles.elementAt(_selectedIndex)),
+      ),
+      drawer: Column(
+        children: [
+          Text('data'),
+          Text('data'),
+        ],
+      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: _screens,
